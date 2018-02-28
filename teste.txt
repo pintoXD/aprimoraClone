@@ -1,0 +1,15 @@
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+
+int main(int argc, char const *argv[])
+{
+    char numbers_str[] = "312 ,22 ,+12 ,-12 ,5331", *currnum;
+    int numbers[5], i = 0;
+
+    while ((currnum = strtok(i	 ? NULL : numbers_str, " ,")) != NULL)
+        numbers[i++] = atoi(currnum);
+
+    printf("%d\n", numbers[3]);
+    return 0;
+}

@@ -1,0 +1,1 @@
+mallocTeste.o: ../mallocTeste.c
