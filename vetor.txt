@@ -16,9 +16,7 @@ std::vector<unsigned int> raw_DataCarrierPessoalOn18{
 		740,396,740,396,716,420,692,1544,
 		576,580,688,448,572,568,732,400,
 		716,416,600,1636,576,1660,580,560,
-		788,1448,580
-
-};
+		788,1448,580};
 
 std::vector<unsigned int> raw_DataCarrierPessoalOn19{
 
@@ -38,9 +36,7 @@ std::vector<unsigned int> raw_DataCarrierPessoalOn19{
 	696,440,524,612,648,488,648,1588,
 	528,628,688,448,736,400,648,484,
 	528,608,696,1540,652,1588,696,440,
-	744,1496,528
-
-};
+	744,1496,528};
 
 std::vector<unsigned int> raw_DataCarrierPessoalOn20{
 
