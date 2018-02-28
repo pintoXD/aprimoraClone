@@ -150,7 +150,7 @@ if(arq == NULL)
         */
         char *bufferSaida = (char*) malloc(strlen(concatenada));
 
-        // free(concatenada);
+        // free(concatenada); 
 
           bufferSaida[0] = 0;
         // char *token = strtok(buffer, "	");
@@ -172,7 +172,7 @@ if(arq == NULL)
 
 
         printf("String:\n %s", bufferSaida);
-
+        //É o "a" do fopen que tá pondo os "\n" no fim de cada linha porra!
         arq2 = fopen("vetorHUE3.txt", "a");
 
         // fputs(buffer,arq2);
