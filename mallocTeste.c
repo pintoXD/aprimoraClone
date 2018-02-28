@@ -55,24 +55,33 @@ if(arq == NULL)
 
     if(aux){
 
-      printf("String Entrando:\n %s", bufferAux);
+      // printf("String Entrando:\n %s", bufferAux);
 
         bufferAux = (char*) realloc(bufferAux, strlen(bufferAux) + 4);
 
           strcat(bufferAux, buffer);
-          // printf("String Entrando:\n %s", bufferAux);
+
+          // char *teste = strchr(bufferAux, '{');
+
+
+
+          // printf("String Entrando:\n %s", teste);
+
 
               const char* textoAux = "matriz[][] = ";
 
               char *texto = (char*) malloc (strlen(textoAux) + sizeof(int)*2);
 
-                    sprintf(texto, "matriz[%d][%d] = ", cont, commaCont + 1);
+                    sprintf(texto, "matriz[%d][%d] = ", cont - 1, commaCont + 1);
 
               char *concatenada = (char*) malloc (strlen(texto) + strlen(bufferAux) + 1);
 
 
         strcpy(concatenada,texto);
-          strcat(concatenada,bufferAux);
+          strcat(concatenada,strchr(bufferAux, '{'));
+
+
+          // printf("concatenada:\n %s ", concatenada);
             // strcpy(buffer, concatenada);
 
             free(texto);
@@ -86,12 +95,12 @@ if(arq == NULL)
 
         char *bufferSaida = (char*) malloc(strlen(concatenada));
 
-        free(concatenada);
+        // free(concatenada);
 
           bufferSaida[0] = 0;
         // char *token = strtok(buffer, "	");
-            int controle = 0;
-          char *token = strtok(buffer, "			\t");
+          int controle = 0;
+          char *token = strtok(concatenada, "			\t");
         // strcpy(bufferSaida,token);
 
           controle = 1;
@@ -109,14 +118,14 @@ if(arq == NULL)
 
         printf("String:\n %s", bufferSaida);
 
-        // arq2 = fopen("vetorHUE.txt", "a");
-        //
-        // // fputs(buffer,arq2);
+        arq2 = fopen("vetorHUE.txt", "a");
+
         // fputs(buffer,arq2);
-        // // fprintf(arq2, "%s\n",bufferSaida);
-        //
-        //
-        // fclose(arq2);
+        fputs(bufferSaida,arq2);
+        // fprintf(arq2, "%s\n",bufferSaida);
+
+
+        fclose(arq2);
 
 
 
@@ -129,7 +138,7 @@ if(arq == NULL)
         // cont = 0;
         commaCont = 0;
         bufferAux = (char*) malloc (strlen(buffer));
-
+        free(concatenada);
         free(bufferSaida);
 
 
