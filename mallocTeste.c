@@ -36,9 +36,10 @@ if(arq == NULL)
 
 		int cont = 0;
     int  commaCont = 0;
+    int  commaContAux;
     char *bufferAux = (char*) malloc (strlen(buffer));
 
-	    while (fgets(buffer, sizeof(buffer), arq) != NULL) {
+	while (fgets(buffer, sizeof(buffer), arq) != NULL) {
 
           for(unsigned int index = 0; index < strlen(buffer); index++){
                 if(buffer[index] == ',')
@@ -105,12 +106,13 @@ if(arq == NULL)
 
           // printf("String Entrando:\n %s", teste);
 
-            //Essa linha é onde eve ser configurada a formatação do novo arquivo.
+            //Essa linha é onde deve ser configurada a formatação do novo arquivo.
             //Nesta configuração, cada linha saíra com o cabeçalho matriz[lin][col] =
             char *concatenada;
 
-            if((cont -  1) == 0){
-              const char* textoAux = "matriz[][] = ";
+              if((cont -  1) == 0)
+                commaContAux = commaCont;
+          /* const char* textoAux = "matriz[][] = ";
 
               char *texto = (char*) malloc (strlen(textoAux) + sizeof(int)*2);
 
@@ -125,11 +127,11 @@ if(arq == NULL)
             }
 
             else if ((cont - 1) > 0){
-
+            */
               concatenada = (char*) malloc (strlen(bufferAux) + 1);
               strcpy(concatenada,strchr(bufferAux, '{'));
 
-              }//Concatenações para formatação da nova frase
+              // }//Concatenações para formatação da nova frase
 
 
 
@@ -150,7 +152,7 @@ if(arq == NULL)
         */
         char *bufferSaida = (char*) malloc(strlen(concatenada));
 
-        // free(concatenada); 
+        // free(concatenada);
 
           bufferSaida[0] = 0;
         // char *token = strtok(buffer, "	");
@@ -375,7 +377,35 @@ if(arq == NULL)
 
 	    }
 
-	    printf("Cont: %d", cont);
+      // char* concatenada;
+      const char* textoAux = "matriz[][] = ";
+
+      char *texto = (char*) malloc (strlen(textoAux) + sizeof(int)*2);
+              sprintf(texto, "\n<matriz[%d][%d]>", cont, commaContAux + 1);
+
+            // Essa linha pode não ser necessária dependendo do tipo de formatação desejada
+
+    // concatenada = (char*) malloc (strlen(texto) + strlen(bufferAux) + 1);
+    // strcpy(concatenada,texto);
+    // strcat(concatenada,strchr(bufferAux, '{'));
+
+        arq2 = fopen("vetorHUE3.txt", "a");
+
+        // fputs(buffer,arq2);
+            fputs(texto,arq2);
+        // fprintf(arq2, "%s\n",bufferSaida);
+
+                free(texto);
+                texto = NULL;
+
+        fclose(arq2);
+
+
+
+            printf("Cont: %d", cont);
+
+
+
 
        fclose(arq);
 
